@@ -1,977 +1,342 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ELPROIVDEROB | Página oficial</title>
+<title>elproivderob | Página oficial</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: #f5fff8;
-  color: #111;
-  line-height: 1.6;
-}
-
-/* ===== HEADER ===== */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: #050505;
-  padding: 12px 18px;
-  box-shadow: 0 3px 15px rgba(0,0,0,.25);
-}
-
-nav {
-  max-width: 1250px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.logo {
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 9px 13px;
-  border-radius: 12px;
-  transition: .2s;
-  font-weight: bold;
-}
-
-nav a:hover {
-  background: #19c463;
-  transform: translateY(-2px);
-}
-
-/* ===== BUSCADOR ===== */
-
-.search-wrap {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  min-width: 180px;
-}
-
-.search {
-  width: min(100%, 330px);
-  padding: 11px 16px;
-  border: 2px solid #19c463;
-  border-radius: 25px;
-  outline: none;
-  font-size: 15px;
-  background: white;
-}
-
-.search:focus {
-  box-shadow: 0 0 0 4px rgba(25,196,99,.2);
-}
-
-.search-results {
-  position: absolute;
-  top: 48px;
-  width: min(330px, 90vw);
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.2);
-  overflow: hidden;
-  display: none;
-}
-
-.search-result {
-  padding: 12px 15px;
-  cursor: pointer;
-  border-bottom: 1px solid #eee;
-}
-
-.search-result:hover {
-  background: #eafff1;
-}
-
-.search-empty {
-  padding: 14px;
-  color: #777;
-}
-
-/* ===== GENERAL ===== */
-
-section {
-  max-width: 1100px;
-  margin: 30px auto;
-  padding: 35px 20px;
-  scroll-margin-top: 90px;
-}
-
-.hero {
-  min-height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(135deg, #dffff0, #ffffff);
-  border-radius: 25px;
-  margin-top: 25px;
-}
-
-.hero h1 {
-  font-size: clamp(35px, 7vw, 70px);
-  color: #0c8f45;
-}
-
-.hero p {
-  font-size: 19px;
-  margin: 10px 0 20px;
-}
-
-/* ===== BOTONES ===== */
-
-.btn {
-  display: inline-block;
-  padding: 12px 20px;
-  margin: 5px;
-  border-radius: 15px;
-  background: #19c463;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: .2s;
-  box-shadow: 0 5px 12px rgba(0,0,0,.15);
-}
-
-.btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  background: #0fa653;
-}
-
-.btn:active {
-  transform: scale(.96);
-}
-
-/* ===== TARJETAS ===== */
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  margin-top: 20px;
-}
-
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 22px;
-  box-shadow: 0 5px 18px rgba(0,0,0,.1);
-  border: 1px solid #dff7e9;
-  transition: .2s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,.15);
-}
-
-.card h3 {
-  color: #0b9147;
-  margin-bottom: 8px;
-}
-
-/* ===== JUEGOS ===== */
-
-.game-card {
-  text-align: center;
-}
-
-.game-icon {
-  font-size: 50px;
-  margin-bottom: 10px;
-}
-
-/* ===== CÓDIGOS ===== */
-
-.codes-box {
-  background: #07130c;
-  color: white;
-  padding: 30px 20px;
-  border-radius: 25px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.2);
-}
-
-.code-search {
-  width: 100%;
-  max-width: 500px;
-  display: block;
-  margin: 20px auto 10px;
-  padding: 14px;
-  border-radius: 15px;
-  border: 2px solid #19c463;
-  font-size: 16px;
-  outline: none;
-}
-
-.code-button {
-  display: block;
-  margin: 10px auto;
-  padding: 13px 25px;
-  border: none;
-  border-radius: 15px;
-  background: #19c463;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 16px;
-  transition: .2s;
-}
-
-.code-button:hover {
-  background: #0fa653;
-  transform: translateY(-2px);
-}
-
-.code-message {
-  text-align: center;
-  margin-top: 15px;
-  min-height: 25px;
-}
-
-.code-counter {
-  text-align: center;
-  margin-top: 15px;
-  color: #a9ffc9;
-}
-
-.secret-space {
-  margin-top: 25px;
-  padding: 20px;
-  border: 2px dashed #19c463;
-  border-radius: 18px;
-  text-align: center;
-  color: #b8ffcf;
-}
-
-/* ===== FOOTER ===== */
-
-footer {
-  background: #050505;
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
-  margin-top: 50px;
-}
-
-/* ===== MÓVIL ===== */
-
-@media (max-width: 700px) {
-
-  header {
-    padding: 10px;
-  }
-
-  nav {
-    justify-content: center;
-  }
-
-  .logo {
-    width: 100%;
-    text-align: center;
-    margin: 0 0 5px;
-  }
-
-  nav a {
-    font-size: 13px;
-    padding: 8px 10px;
-  }
-
-  .search-wrap {
-    order: 20;
-    width: 100%;
-    flex-basis: 100%;
-  }
-
-  .search {
-    width: 100%;
-  }
-
-  .search-results {
-    width: 100%;
-  }
-
-  section {
-    margin: 20px 10px;
-    padding: 25px 15px;
-  }
-
-  .hero {
-    min-height: 360px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .btn {
-    width: 100%;
-    margin: 6px 0;
-    text-align: center;
-  }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#f5fff8;color:#111;line-height:1.6}
+header{position:sticky;top:0;z-index:1000;background:#050505;padding:12px 18px;box-shadow:0 3px 15px #0004}
+nav{max-width:1250px;margin:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.logo{color:white;font-size:20px;font-weight:bold;margin-right:10px}
+nav a{color:white;text-decoration:none;padding:9px 13px;border-radius:12px;font-weight:bold;transition:.2s}
+nav a:hover{background:#19c463}
+.search-wrap{flex:1;min-width:180px;position:relative;display:flex;justify-content:center}
+.search{width:min(100%,330px);padding:11px 16px;border:2px solid #19c463;border-radius:25px;font-size:15px}
+.search-results{position:absolute;top:48px;width:min(330px,90vw);background:white;border-radius:15px;box-shadow:0 8px 25px #0003;display:none;overflow:hidden;color:#111}
+.search-result{padding:12px;cursor:pointer;border-bottom:1px solid #eee}
+.search-result:hover{background:#eafff1}
+section{max-width:1100px;margin:30px auto;padding:35px 20px;scroll-margin-top:100px}
+.hero{min-height:420px;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#dffff0,#fff);border-radius:25px;margin-top:25px}
+.hero h1{font-size:clamp(35px,7vw,70px);color:#0c8f45;overflow-wrap:anywhere}
+.hero p{font-size:19px;margin:10px 0 20px}
+.btn{display:inline-block;padding:12px 20px;margin:5px;border-radius:15px;background:#19c463;color:white;text-decoration:none;font-weight:bold;border:0;cursor:pointer;transition:.2s}
+.btn:hover{background:#0fa653;transform:translateY(-2px)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:20px}
+.card{background:white;padding:25px;border-radius:22px;box-shadow:0 5px 18px #0001;border:1px solid #dff7e9;overflow-wrap:anywhere}
+.card h3{color:#0b9147;margin-bottom:8px}
+.game-card{text-align:center}
+.game-icon{font-size:50px;margin-bottom:10px}
+.codes-box{background:#07130c;color:white;padding:30px 20px;border-radius:25px;box-shadow:0 8px 25px #0003}
+.code-search{width:100%;max-width:500px;display:block;margin:20px auto 10px;padding:14px;border-radius:15px;border:2px solid #19c463;font-size:16px}
+.code-button{display:block;margin:10px auto;padding:13px 25px;border:0;border-radius:15px;background:#19c463;color:white;font-weight:bold;cursor:pointer;font-size:16px}
+.code-button:hover{background:#0fa653}
+.code-message{text-align:center;margin-top:15px;min-height:30px;overflow-wrap:anywhere}
+.code-counter{text-align:center;margin-top:15px;color:#a9ffc9}
+.secret-space{margin-top:25px;padding:20px;border:2px dashed #19c463;border-radius:18px;text-align:center;color:#b8ffcf}
+footer{background:#050505;color:white;text-align:center;padding:30px 15px;margin-top:50px}
+@media(max-width:700px){
+header{padding:10px}nav{justify-content:center}.logo{width:100%;text-align:center;margin:0 0 5px}
+nav a{font-size:13px;padding:8px 10px}.search-wrap{order:20;width:100%;flex-basis:100%}
+.search{width:100%}section{margin:20px 10px;padding:25px 15px}.hero{min-height:360px}
+.hero p{font-size:16px}.cards{grid-template-columns:1fr}.btn{margin:6px 0;text-align:center}
 }
 </style>
 </head>
 
 <body>
-
 <header>
 <nav>
-
-<div class="logo">⬛ ELPROIVDEROB</div>
-
+<div class="logo">⬛ elproivderob</div>
 <a href="#inicio">Inicio</a>
 <a href="#roblox">Roblox</a>
 <a href="#juegos">🎮 Juegos</a>
 <a href="#videos">Videos</a>
-
 <div class="search-wrap">
-
-<input
-class="search"
-id="search"
-type="text"
-placeholder="🔍 Buscar..."
-autocomplete="off"
-aria-label="Buscar en la página"
-oninput="buscar()">
-
+<input class="search" id="search" placeholder="🔍 Buscar..." autocomplete="off" aria-label="Buscar en la página">
 <div id="searchResults" class="search-results"></div>
-
 </div>
-
 <a href="#galeria">Galería</a>
 <a href="#noticias">Noticias</a>
 <a href="#sobre-mi">Sobre mí</a>
-
+<a href="#codigos">🔐 Códigos</a>
 </nav>
 </header>
 
-
-<!-- INICIO -->
-
 <section id="inicio" class="hero">
-
 <div>
-
-<h1>ELPROIVDEROB</h1>
-
+<h1>elproivderob</h1>
 <p>🎮 Roblox • Fortnite • Among Us • Videos • Más</p>
-
 <a class="btn" href="#juegos">🎮 Ver mis juegos</a>
 <a class="btn" href="#sobre-mi">👤 Sobre mí</a>
-
 </div>
-
 </section>
-
-
-<!-- ROBLOX -->
 
 <section id="roblox">
-
 <h2>🧱 Roblox</h2>
-
 <div class="cards">
-
 <div class="card">
-
 <h3>Mi cuenta</h3>
-
 <p>Roblox: <strong>proiv09</strong></p>
-
-<a class="btn" href="https://www.roblox.com/" target="_blank">
-🎮 Roblox
-</a>
-
+<a class="btn" href="https://www.roblox.com/" target="_blank" rel="noopener">🎮 Roblox</a>
 </div>
-
 </div>
-
 </section>
-
-
-<!-- JUEGOS -->
 
 <section id="juegos">
-
-<h2>🎮 Tus juegos</h2>
-
-<p>Estos son los juegos donde puedes encontrar a ELPROIVDEROB.</p>
-
+<h2>🎮 Mis juegos</h2>
+<p>Estos son los juegos donde puedes encontrar a elproivderob.</p>
 <div class="cards">
-
 <div class="card game-card">
-
-<div class="game-icon">🧱</div>
-
-<h3>Roblox</h3>
-
+<div class="game-icon">🧱</div><h3>Roblox</h3>
 <p>Usuario: <strong>proiv09</strong></p>
-
-<a class="btn" href="https://www.roblox.com/" target="_blank">
-▶️ Jugar
-</a>
-
+<a class="btn" href="https://www.roblox.com/" target="_blank" rel="noopener">▶️ Jugar</a>
 </div>
-
-
 <div class="card game-card">
-
-<div class="game-icon">🔫</div>
-
-<h3>Fortnite</h3>
-
+<div class="game-icon">🎯</div><h3>Fortnite</h3>
 <p>Nombre: <strong>El Proiv</strong></p>
-
-<a class="btn" href="https://www.fortnite.com/" target="_blank">
-▶️ Fortnite
-</a>
-
+<a class="btn" href="https://www.fortnite.com/" target="_blank" rel="noopener">▶️ Fortnite</a>
 </div>
-
-
 <div class="card game-card">
-
-<div class="game-icon">🚀</div>
-
-<h3>Among Us</h3>
-
+<div class="game-icon">🚀</div><h3>Among Us</h3>
 <p>Nombre: <strong>ELPROIVDEROB</strong></p>
-
-<a class="btn" href="https://www.innersloth.com/games/among-us/" target="_blank">
-▶️ Among Us
-</a>
-
+<a class="btn" href="https://www.innersloth.com/games/among-us/" target="_blank" rel="noopener">▶️ Among Us</a>
 </div>
-
 </div>
-
 </section>
-
-
-<!-- VIDEOS -->
 
 <section id="videos">
-
 <h2>🎬 Videos y redes</h2>
-
 <div class="cards">
-
 <div class="card">
-
-<h3>YouTube</h3>
-
-<p>Encuentra mis videos en YouTube.</p>
-
-<a class="btn" href="https://www.youtube.com/@elproivderob" target="_blank">
-▶️ YouTube
-</a>
-
+<h3>YouTube</h3><p>Encuentra mis videos en YouTube.</p>
+<a class="btn" href="https://www.youtube.com/@elproivderob" target="_blank" rel="noopener">▶️ YouTube</a>
 </div>
-
-
 <div class="card">
-
-<h3>TikTok</h3>
-
-<p>También estoy en TikTok.</p>
-
-<a class="btn" href="https://www.tiktok.com/@elproivderob" target="_blank">
-🎵 TikTok
-</a>
-
+<h3>TikTok</h3><p>También estoy en TikTok.</p>
+<a class="btn" href="https://www.tiktok.com/@elproivderob" target="_blank" rel="noopener">🎵 TikTok</a>
 </div>
-
 </div>
-
 </section>
-
-
-<!-- GALERÍA -->
 
 <section id="galeria">
-
 <h2>🖼️ Galería</h2>
-
-<div class="card">
-
-<p>Próximamente habrá más contenido aquí. 👀</p>
-
-</div>
-
+<div class="card"><p>Próximamente habrá más contenido aquí. 👀</p></div>
 </section>
-
-
-<!-- NOTICIAS -->
 
 <section id="noticias">
-
 <h2>📰 Noticias</h2>
-
-<div class="card">
-
-<h3>Últimas novedades</h3>
-
-<p>Aquí aparecerán las novedades de ELPROIVDEROB.</p>
-
-</div>
-
+<div class="card"><h3>Últimas novedades</h3><p>Aquí aparecerán las novedades de elproivderob.</p></div>
 </section>
-
-
-<!-- SOBRE MI -->
 
 <section id="sobre-mi">
-
 <h2>👤 Sobre mí</h2>
-
 <div class="card">
-
-<p>
-Hola, soy Proiv. Empecé en YouTube con el nombre
-<strong>Proiv09Blox</strong>, pero lo perdí.
-Llegué a tener 198 subs, CASIII 200, pero me lo borraron.
-</p>
-
-<br>
-
-<p>
-Creé otro canal de YouTube, pero no salió bien y también fue eliminado.
-</p>
-
-<br>
-
-<p>
-Después creé TikTok y me empezó a ir bien.
-Actualmente tengo 178 seguidores.
-</p>
-
-<br>
-
-<p>
-También creé otro canal de YouTube llamado
-<strong>ELPROIVDEROB</strong>.
-</p>
-
-<br>
-
-<p>
-🧱 Roblox: <strong>proiv09</strong><br>
-🔫 Fortnite: <strong>El Proiv</strong><br>
-🚀 Among Us: <strong>ELPROIVDEROB</strong>
-</p>
-
-<br>
-
-<p>
-🤝 Miembro del Team Proxito
-</p>
-
-<br>
-
-<p>
-<strong>Y esta historia todavía continúa...</strong> 🚀
-</p>
-
+<p>Hola, soy Proiv. Empecé en YouTube con el nombre <strong>Proiv09Blox</strong>, pero lo perdí. Llegué a tener 198 subs, CASIII 200.</p><br>
+<p>Creé otro canal de YouTube, pero no salió bien y también fue eliminado.</p><br>
+<p>Después creé TikTok y me empezó a ir bien. Actualmente tengo 178 seguidores.</p><br>
+<p>También creé otro canal de YouTube llamado <strong>ELPROIVDEROB</strong>.</p><br>
+<p>🧱 Roblox: <strong>proiv09</strong><br>🎯 Fortnite: <strong>El Proiv</strong><br>🚀 Among Us: <strong>ELPROIVDEROB</strong></p><br>
+<p>🤝 Miembro del Team Proxito</p><br>
+<p><strong>Y esta historia todavía continúa...</strong> 🚀</p>
 </div>
-
 </section>
 
-
-<!-- EASTER EGG -->
-
-<section>
-
-<div class="card" style="text-align:center;">
-
+<section id="easter-egg">
+<div class="card" style="text-align:center">
 <h3>👀 Easter Egg</h3>
-
-<p>Hola, are you gay? 👀</p>
-
-<p>Abajo es broma 😂</p>
-
+<p>Hola, are you gay? 👀</p><p>Abajo es broma 😂</p>
 </div>
-
 </section>
-
-
-<!-- CÓDIGOS -->
 
 <section id="codigos">
-
 <div class="codes-box">
-
 <h2>🔐 CÓDIGOS</h2>
-
-<p style="text-align:center;">
-Encuéntralos... están en todas partes. 👀
-</p>
-
-<p style="text-align:center; margin-top:8px;">
-Hay 20 códigos secretos escondidos entre mis juegos,
-directos, videos, redes sociales y la página.
-</p>
-
-
-<input
-id="codeInput"
-class="code-search"
-type="text"
-placeholder="🔎 Introduce un código..."
-autocomplete="off">
-
-<button class="code-button" onclick="usarCodigo()">
-✅ Usar código
-</button>
-
-<button class="code-button" onclick="copiarCodigo()">
-📋 Copiar código
-</button>
-
-<div id="codeMessage" class="code-message"></div>
-
-<div class="code-counter">
-🏆 Códigos descubiertos:
-<strong id="counter">0</strong> / 20
+<p style="text-align:center">Encuéntralos... están en todas partes. 👀</p>
+<p style="text-align:center;margin-top:8px">Hay 20 códigos secretos escondidos entre mis juegos, directos, videos, redes sociales y la página.</p>
+<input id="codeInput" class="code-search" type="text" placeholder="🔎 Introduce un código..." autocomplete="off">
+<button class="code-button" id="useCodeButton">✅ Usar código</button>
+<button class="code-button" id="copyCodeButton">📋 Copiar código escrito</button>
+<div id="codeMessage" class="code-message" role="status" aria-live="polite"></div>
+<div class="code-counter">🏆 Códigos descubiertos: <strong id="counter">0</strong> / 20</div>
+<div class="secret-space">🔒 ESPACIO PARA TUS CÓDIGOS SECRETOS<br><br>¡Encuentra los códigos por toda la comunidad de elproivderob! 👀</div>
 </div>
-
-
-<div class="secret-space">
-
-🔒 ESPACIO PARA TUS CÓDIGOS SECRETOS
-
-<br><br>
-
-Aquí puedes agregar tus códigos reales cuando quieras.
-
-</div>
-
-</div>
-
 </section>
 
-
 <footer>
-
-<p>© 2026 ELPROIVDEROB</p>
-
+<p>© 2026 elproivderob</p>
 <p>🚀 Esta historia todavía continúa...</p>
-
 </footer>
 
-
 <script>
-
-/* =========================
-   BUSCADOR V1.1
-========================= */
-
+/* BUSCADOR DE LA PÁGINA */
 const secciones = [
-  {
-    id: "inicio",
-    nombre: "Inicio"
-  },
-  {
-    id: "roblox",
-    nombre: "Roblox"
-  },
-  {
-    id: "juegos",
-    nombre: "Tus juegos"
-  },
-  {
-    id: "videos",
-    nombre: "Videos y redes"
-  },
-  {
-    id: "galeria",
-    nombre: "Galería"
-  },
-  {
-    id: "noticias",
-    nombre: "Noticias"
-  },
-  {
-    id: "sobre-mi",
-    nombre: "Sobre mí"
-  },
-  {
-    id: "codigos",
-    nombre: "Códigos"
-  }
+{id:"inicio",nombre:"Inicio"},
+{id:"roblox",nombre:"Roblox"},
+{id:"juegos",nombre:"Juegos"},
+{id:"videos",nombre:"Videos y redes"},
+{id:"galeria",nombre:"Galería"},
+{id:"noticias",nombre:"Noticias"},
+{id:"sobre-mi",nombre:"Sobre mí"},
+{id:"easter-egg",nombre:"Easter Egg"},
+{id:"codigos",nombre:"Códigos"}
 ];
 
-
-function normalizar(texto) {
-
-  return texto
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-
+function normalizar(texto){
+ return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 }
 
+const searchInput=document.getElementById("search");
+const searchResults=document.getElementById("searchResults");
 
-function buscar() {
+function buscar(){
+ const texto=normalizar(searchInput.value.trim());
+ searchResults.innerHTML="";
+ if(!texto){searchResults.style.display="none";return;}
 
-  const input = document.getElementById("search");
-  const resultados = document.getElementById("searchResults");
+ const palabras=texto.split(/\s+/);
+ const encontrados=secciones.filter(s=>{
+  const el=document.getElementById(s.id);
+  return el && palabras.every(p=>normalizar(s.nombre+" "+el.innerText).includes(p));
+ });
 
-  const texto = normalizar(input.value.trim());
-
-  resultados.innerHTML = "";
-
-  if (texto === "") {
-
-    resultados.style.display = "none";
-
-    return;
-
-  }
-
-
-  const palabras = texto
-    .split(/\s+/)
-    .filter(Boolean);
-
-
-  const encontrados = secciones.filter(seccion => {
-
-    const elemento = document.getElementById(seccion.id);
-
-    if (!elemento) return false;
-
-    const contenido = normalizar(
-      seccion.nombre + " " + elemento.innerText
-    );
-
-    return palabras.every(palabra =>
-      contenido.includes(palabra)
-    );
-
+ if(!encontrados.length){
+  searchResults.innerHTML='<div class="search-result">❌ No encontré nada.</div>';
+ }else{
+  encontrados.forEach(s=>{
+   const item=document.createElement("div");
+   item.className="search-result";
+   const strong=document.createElement("strong");
+   strong.textContent="🔎 "+s.nombre;
+   item.appendChild(strong);
+   item.addEventListener("click",()=>{
+    document.getElementById(s.id).scrollIntoView({behavior:"smooth"});
+    searchInput.value="";
+    searchResults.style.display="none";
+   });
+   searchResults.appendChild(item);
   });
-
-
-  if (encontrados.length === 0) {
-
-    resultados.innerHTML =
-      '<div class="search-empty">❌ No encontré nada.</div>';
-
-    resultados.style.display = "block";
-
-    return;
-
-  }
-
-
-  encontrados.forEach(seccion => {
-
-    const resultado = document.createElement("div");
-
-    resultado.className = "search-result";
-
-    resultado.innerHTML =
-      "🔎 <strong>" + seccion.nombre + "</strong>";
-
-    resultado.onclick = () => {
-
-      document
-        .getElementById(seccion.id)
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
-      input.value = "";
-
-      resultados.style.display = "none";
-
-    };
-
-    resultados.appendChild(resultado);
-
-  });
-
-
-  resultados.style.display = "block";
-
+ }
+ searchResults.style.display="block";
 }
+searchInput.addEventListener("input",buscar);
+searchInput.addEventListener("keydown",e=>{
+ if(e.key==="Escape"){searchInput.value="";searchResults.style.display="none";}
+});
+document.addEventListener("click",e=>{
+ if(!e.target.closest(".search-wrap"))searchResults.style.display="none";
+});
 
-
-/* Cerrar resultados con ESC */
-
-document
-  .getElementById("search")
-  .addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-
-      this.value = "";
-
-      document.getElementById("searchResults").style.display = "none";
-
-    }
-
-  });
-
-
-/* =========================
-   SISTEMA DE CÓDIGOS
-========================= */
-
-/*
-IMPORTANTE:
-Aquí NO inventé tus 20 códigos.
-Agrega tus códigos reales dentro de este arreglo.
-*/
-
-const codigosSecretos = [
-
-  // Ejemplo:
-  // "TU-CODIGO-AQUI"
-
+/* LOS 20 CÓDIGOS QUE ME PASASTE */
+const codigosSecretos=[
+ "TEAMPROXITO123",
+ "PRO12345",
+ "AREYOUGAY",
+ "HALLOWEN",
+ "NAVIDAD",
+ "2026",
+ "SIX SEVEN",
+ "YOUTUBE",
+ "TIKTOK",
+ "ROBLOX",
+ "FORNITE",
+ "SPIDERMAN",
+ "FEDEESBODRIO",
+ "PROIV",
+ "IVAN",
+ "BATERIA",
+ "COSMO VERSO",
+ "67",
+ "2027",
+ "1234567891011121314151617181920"
 ];
 
+const mensajes={
+ "TEAMPROXITO123":"💚 ¡Código del Team Proxito descubierto!",
+ "PRO12345":"🎮 ¡Buen trabajo, gamer!",
+ "AREYOUGAY":"😂 ¡Encontraste un código misterioso!",
+ "HALLOWEN":"🎃 ¡Sorpresa de Halloween!",
+ "NAVIDAD":"🎄 ¡Feliz Navidad!",
+ "2026":"📅 ¡Código del año 2026!",
+ "SIX SEVEN":"😂 ¡SIX SEVEN!",
+ "YOUTUBE":"▶️ ¡Gracias por apoyar el canal!",
+ "TIKTOK":"🎵 ¡Gracias por apoyar el contenido!",
+ "ROBLOX":"🟩 ¡Modo Roblox activado!",
+ "FORNITE":"🎯 ¡Código descubierto!",
+ "SPIDERMAN":"🕷️ ¡Tu sentido arácnido lo encontró!",
+ "FEDEESBODRIO":"🤣 ¡Código descubierto!",
+ "PROIV":"👑 ¡Un código de PROIV!",
+ "IVAN":"😎 ¡Código personal descubierto!",
+ "BATERIA":"🔋 ¡Carga tus energías!",
+ "COSMO VERSO":"🌌 ¡El Cosmo Verso te encontró!",
+ "67":"😂 ¡Otro SIX SEVEN!",
+ "2027":"🚀 ¡Un código del futuro!",
+ "1234567891011121314151617181920":"🏆 ¡Encontraste el código numérico gigante!"
+};
 
-let descubiertos =
-  JSON.parse(
-    localStorage.getItem("codigosELPROIVDEROB") || "[]"
-  );
+const storageKey="codigosELPROIVDEROB";
+let descubiertos=[];
+try{
+ const guardados=JSON.parse(localStorage.getItem(storageKey)||"[]");
+ if(Array.isArray(guardados))descubiertos=guardados.filter(c=>codigosSecretos.includes(c));
+}catch(e){descubiertos=[];}
 
+const codeInput=document.getElementById("codeInput");
+const codeMessage=document.getElementById("codeMessage");
+const counter=document.getElementById("counter");
 
-function actualizarContador() {
-
-  document.getElementById("counter").textContent =
-    descubiertos.length;
-
+function actualizarContador(){
+ counter.textContent=descubiertos.length;
 }
 
+function usarCodigo(){
+ const codigo=codeInput.value.trim().toUpperCase();
+ if(!codigo){
+  codeMessage.textContent="⚠️ Escribe un código primero.";
+  return;
+ }
 
-function usarCodigo() {
+ const encontrado=codigosSecretos.find(c=>c.toUpperCase()===codigo);
+ if(!encontrado){
+  codeMessage.textContent="❌ Código incorrecto. ¡Sigue buscando!";
+  return;
+ }
 
-  const input =
-    document.getElementById("codeInput");
+ if(descubiertos.includes(encontrado)){
+  codeMessage.textContent="😎 ¡Ya habías descubierto este código! "+(mensajes[encontrado]||"");
+  return;
+ }
 
-  const mensaje =
-    document.getElementById("codeMessage");
-
-  const codigo =
-    input.value.trim().toUpperCase();
-
-
-  if (codigo === "") {
-
-    mensaje.innerHTML =
-      "⚠️ Escribe un código.";
-
-    return;
-
-  }
-
-
-  const existe =
-    codigosSecretos.includes(codigo);
-
-
-  if (existe) {
-
-    if (!descubiertos.includes(codigo)) {
-
-      descubiertos.push(codigo);
-
-      localStorage.setItem(
-        "codigosELPROIVDEROB",
-        JSON.stringify(descubiertos)
-      );
-
-      mensaje.innerHTML =
-        "🎉 ¡Código correcto! ¡Has descubierto uno! 🔥";
-
-    } else {
-
-      mensaje.innerHTML =
-        "😎 Ya habías descubierto este código.";
-
-    }
-
-    actualizarContador();
-
-  } else {
-
-    mensaje.innerHTML =
-      "❌ Código incorrecto o todavía no descubierto.";
-
-  }
-
+ descubiertos.push(encontrado);
+ try{localStorage.setItem(storageKey,JSON.stringify(descubiertos));}catch(e){}
+ actualizarContador();
+ codeMessage.textContent="🎉 ¡Código correcto! "+mensajes[encontrado];
+ if(descubiertos.length===codigosSecretos.length){
+  codeMessage.textContent+=" 🏆 ¡ENCONTRASTE LOS 20 CÓDIGOS! ¡ERES UN FAN LEGENDARIO!";
+ }
 }
 
+document.getElementById("useCodeButton").addEventListener("click",usarCodigo);
+codeInput.addEventListener("keydown",e=>{if(e.key==="Enter")usarCodigo();});
 
-/* Copiar código */
-
-function copiarCodigo() {
-
-  const input =
-    document.getElementById("codeInput");
-
-  const mensaje =
-    document.getElementById("codeMessage");
-
-
-  if (input.value.trim() === "") {
-
-    mensaje.innerHTML =
-      "⚠️ Escribe algo para copiar.";
-
-    return;
-
-  }
-
-
-  navigator.clipboard.writeText(
-    input.value.trim()
-  );
-
-  mensaje.innerHTML =
-    "📋 ¡Código copiado!";
-
-}
-
+document.getElementById("copyCodeButton").addEventListener("click",async()=>{
+ const texto=codeInput.value.trim();
+ if(!texto){codeMessage.textContent="⚠️ Escribe un código para copiar.";return;}
+ try{
+  await navigator.clipboard.writeText(texto);
+  codeMessage.textContent="📋 ¡Texto copiado!";
+ }catch(e){
+  codeInput.select();
+  const copiado=document.execCommand("copy");
+  codeMessage.textContent=copiado?"📋 ¡Texto copiado!":"No se pudo copiar automáticamente. Selecciona y copia el texto.";
+ }
+});
 
 actualizarContador();
-
 </script>
-
 </body>
 </html>
